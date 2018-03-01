@@ -4,6 +4,17 @@ $('#submit-survey').on('click', function submitSurvey() {
 	var vacation = $("input[name=vacation]").val();
 	var feBefore = $("input[name=front-end-before]").val();
 	var feAfter = $("input[name=front-end-after]").val();
+	$.post('/submit-survey', {
+		color: color,
+		food: food,
+		vacation: vacation,
+		feBefore: feBefore,
+		feAfter: feAfter
+	  }, function(returnedData){
+		console.log(returnedData);
+		// $(document.body.parentNode).html(returnedData);
+		$('html').html(returnedData);
+	}) 
 });
 
 $("#site-title-wrapper").on('click', function goHome() {
